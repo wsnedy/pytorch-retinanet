@@ -1,7 +1,7 @@
 """Encode object boxes and labels"""
 import math
 import torch
-from .utils import meshgrid, change_box_order, box_iou, box_nms
+from utils import meshgrid, change_box_order, box_iou, box_nms
 
 
 class DataEncoder(object):

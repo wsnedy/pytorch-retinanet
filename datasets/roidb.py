@@ -1,5 +1,5 @@
 import numpy as np
-from .coco_json_dataset import COCOJsonDataset
+from coco_json_dataset import COCOJsonDataset
 
 
 def combined_roidb_for_training(root, dataset_names, cache_dir):

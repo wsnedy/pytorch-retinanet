@@ -3,10 +3,10 @@ import torch
 import torch.utils.data as data
 import torch.utils.data.sampler as torch_sampler
 from torch.utils.data.dataloader import default_collate
-from .minibatch import get_minibatch
+from minibatch import get_minibatch
 import math
-from .utils import get_max_shape
-from .encoder import DataEncoder
+from utils import get_max_shape
+from encoder import DataEncoder
 
 
 class COCODataset(data.Dataset):
@@ -150,8 +150,11 @@ class MinibatchSampler(torch_sampler.Sampler):
         round_num_data = n * self.img_per_minibatch
         indices = np.arange(round_num_data)
         np.random.shuffle(indices.reshape(-1, self.img_per_minibatch))  # inplace shuffle
-        if rem != 0:
-            indices = np.append(indices, np.arange(round_num_data, round_num_data + rem))
+        # there has a problem, if in each minibatch, the number of image less than 3
+        # i think it will raise a error, because the num_pos = 0 for that image or two images
+        # and the loss can't backward
+        # if rem != 0:
+        #     indices = np.append(indices, np.arange(round_num_data, round_num_data + rem))
         ratio_index = self.ratio_index[indices]
         ratio_list_minibatch = self.ratio_list_minibatch[indices]
         return iter(zip(ratio_index.tolist(), ratio_list_minibatch.tolist()))
@@ -170,7 +173,7 @@ def collate_minibatch(list_of_blobs):
     """
     img_per_minibatch = 3
     encoder = DataEncoder()
-    Batch = {key: [] for key in list_of_blobs[0]}
+    Batch = {key: [] for key in ['im_info', 'cls_targets', 'loc_targets', 'data']}
     # Because roidb consists of entries of variable length, it can't be batch into a tensor.
     # so we keep roidb in the type of `list of ndarray`.
     # pop method: get the value and delete the key in dicts

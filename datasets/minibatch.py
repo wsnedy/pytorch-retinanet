@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from .utils import prep_im_for_blob, im_list_to_blob
+from utils import prep_im_for_blob, im_list_to_blob
 
 
 def get_minibatch(roidb):
