@@ -1,0 +1,448 @@
+2018-06-24 18:47:08,400 - train.py: 91 - log - loc_loss: 0.056 | cls_loss: 0.647 | train_loss: 0.704 | avg_loss: 0.826
+
+2018-06-24 18:47:11,635 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.613 | train_loss: 0.678 | avg_loss: 0.826
+
+2018-06-24 18:47:14,772 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.620 | train_loss: 0.681 | avg_loss: 0.826
+
+2018-06-24 18:47:17,844 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.632 | train_loss: 0.693 | avg_loss: 0.826
+
+2018-06-24 18:47:20,887 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.683 | train_loss: 0.750 | avg_loss: 0.826
+
+2018-06-24 18:47:23,556 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.669 | train_loss: 0.734 | avg_loss: 0.826
+
+2018-06-24 18:47:26,575 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.661 | train_loss: 0.721 | avg_loss: 0.826
+
+2018-06-24 18:47:29,334 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.650 | train_loss: 0.716 | avg_loss: 0.826
+
+2018-06-24 18:47:32,099 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.646 | train_loss: 0.711 | avg_loss: 0.826
+
+2018-06-24 18:47:35,277 - train.py: 91 - log - loc_loss: 0.055 | cls_loss: 0.549 | train_loss: 0.604 | avg_loss: 0.826
+
+2018-06-24 18:47:38,356 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.639 | train_loss: 0.704 | avg_loss: 0.826
+
+2018-06-24 18:47:41,539 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.595 | train_loss: 0.658 | avg_loss: 0.826
+
+2018-06-24 18:47:44,533 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.619 | train_loss: 0.677 | avg_loss: 0.826
+
+2018-06-24 18:47:47,238 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.589 | train_loss: 0.655 | avg_loss: 0.826
+
+2018-06-24 18:47:49,905 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.614 | train_loss: 0.683 | avg_loss: 0.825
+
+2018-06-24 18:47:53,053 - train.py: 91 - log - loc_loss: 0.056 | cls_loss: 0.538 | train_loss: 0.595 | avg_loss: 0.825
+
+2018-06-24 18:47:55,817 - train.py: 91 - log - loc_loss: 0.057 | cls_loss: 0.513 | train_loss: 0.571 | avg_loss: 0.825
+
+2018-06-24 18:47:58,628 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.571 | train_loss: 0.635 | avg_loss: 0.825
+
+2018-06-24 18:48:01,689 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.689 | train_loss: 0.751 | avg_loss: 0.825
+
+2018-06-24 18:48:04,470 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.631 | train_loss: 0.693 | avg_loss: 0.825
+
+2018-06-24 18:48:07,268 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.565 | train_loss: 0.626 | avg_loss: 0.825
+
+2018-06-24 18:48:09,948 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.598 | train_loss: 0.661 | avg_loss: 0.825
+
+2018-06-24 18:48:12,809 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.617 | train_loss: 0.680 | avg_loss: 0.825
+
+2018-06-24 18:48:15,965 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.640 | train_loss: 0.706 | avg_loss: 0.825
+
+2018-06-24 18:48:18,940 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.614 | train_loss: 0.677 | avg_loss: 0.825
+
+2018-06-24 18:48:21,986 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.651 | train_loss: 0.717 | avg_loss: 0.825
+
+2018-06-24 18:48:24,657 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.656 | train_loss: 0.721 | avg_loss: 0.825
+
+2018-06-24 18:48:27,705 - train.py: 91 - log - loc_loss: 0.056 | cls_loss: 0.651 | train_loss: 0.707 | avg_loss: 0.825
+
+2018-06-24 18:48:30,781 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.598 | train_loss: 0.665 | avg_loss: 0.825
+
+2018-06-24 18:48:33,654 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.615 | train_loss: 0.677 | avg_loss: 0.825
+
+2018-06-24 18:48:36,349 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.588 | train_loss: 0.647 | avg_loss: 0.825
+
+2018-06-24 18:48:39,183 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.579 | train_loss: 0.641 | avg_loss: 0.825
+
+2018-06-24 18:48:41,977 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.636 | train_loss: 0.701 | avg_loss: 0.825
+
+2018-06-24 18:48:44,755 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.657 | train_loss: 0.722 | avg_loss: 0.825
+
+2018-06-24 18:48:48,000 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.602 | train_loss: 0.661 | avg_loss: 0.825
+
+2018-06-24 18:48:50,639 - train.py: 91 - log - loc_loss: 0.071 | cls_loss: 0.650 | train_loss: 0.721 | avg_loss: 0.825
+
+2018-06-24 18:48:53,882 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.757 | train_loss: 0.821 | avg_loss: 0.825
+
+2018-06-24 18:48:56,953 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.576 | train_loss: 0.634 | avg_loss: 0.825
+
+2018-06-24 18:48:59,884 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.636 | train_loss: 0.703 | avg_loss: 0.825
+
+2018-06-24 18:49:02,609 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.607 | train_loss: 0.665 | avg_loss: 0.825
+
+2018-06-24 18:49:05,672 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.688 | train_loss: 0.752 | avg_loss: 0.825
+
+2018-06-24 18:49:08,553 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.608 | train_loss: 0.667 | avg_loss: 0.825
+
+2018-06-24 18:49:11,789 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.588 | train_loss: 0.649 | avg_loss: 0.825
+
+2018-06-24 18:49:14,496 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.609 | train_loss: 0.674 | avg_loss: 0.825
+
+2018-06-24 18:49:17,285 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.639 | train_loss: 0.700 | avg_loss: 0.825
+
+2018-06-24 18:49:20,362 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.621 | train_loss: 0.685 | avg_loss: 0.825
+
+2018-06-24 18:49:23,126 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.581 | train_loss: 0.640 | avg_loss: 0.825
+
+2018-06-24 18:49:25,903 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.587 | train_loss: 0.650 | avg_loss: 0.825
+
+2018-06-24 18:49:28,584 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.587 | train_loss: 0.649 | avg_loss: 0.825
+
+2018-06-24 18:49:31,660 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.682 | train_loss: 0.745 | avg_loss: 0.825
+
+2018-06-24 18:49:34,907 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.643 | train_loss: 0.704 | avg_loss: 0.825
+
+2018-06-24 18:49:37,593 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.647 | train_loss: 0.705 | avg_loss: 0.825
+
+2018-06-24 18:49:40,317 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.694 | train_loss: 0.755 | avg_loss: 0.825
+
+2018-06-24 18:49:43,061 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.647 | train_loss: 0.712 | avg_loss: 0.825
+
+2018-06-24 18:49:46,115 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.656 | train_loss: 0.722 | avg_loss: 0.825
+
+2018-06-24 18:49:48,858 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.581 | train_loss: 0.644 | avg_loss: 0.825
+
+2018-06-24 18:49:51,665 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.570 | train_loss: 0.635 | avg_loss: 0.825
+
+2018-06-24 18:49:54,428 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.634 | train_loss: 0.698 | avg_loss: 0.825
+
+2018-06-24 18:49:57,477 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.622 | train_loss: 0.685 | avg_loss: 0.825
+
+2018-06-24 18:50:00,190 - train.py: 91 - log - loc_loss: 0.072 | cls_loss: 0.726 | train_loss: 0.798 | avg_loss: 0.825
+
+2018-06-24 18:50:02,958 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.645 | train_loss: 0.703 | avg_loss: 0.825
+
+2018-06-24 18:50:06,023 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.665 | train_loss: 0.731 | avg_loss: 0.825
+
+2018-06-24 18:50:09,076 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.599 | train_loss: 0.665 | avg_loss: 0.825
+
+2018-06-24 18:50:11,859 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.614 | train_loss: 0.677 | avg_loss: 0.825
+
+2018-06-24 18:50:14,545 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.614 | train_loss: 0.675 | avg_loss: 0.825
+
+2018-06-24 18:50:17,592 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.617 | train_loss: 0.679 | avg_loss: 0.825
+
+2018-06-24 18:50:20,305 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.677 | train_loss: 0.741 | avg_loss: 0.825
+
+2018-06-24 18:50:23,423 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.589 | train_loss: 0.653 | avg_loss: 0.825
+
+2018-06-24 18:50:26,014 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.678 | train_loss: 0.745 | avg_loss: 0.825
+
+2018-06-24 18:50:28,695 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.703 | train_loss: 0.772 | avg_loss: 0.825
+
+2018-06-24 18:50:31,794 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.619 | train_loss: 0.683 | avg_loss: 0.825
+
+2018-06-24 18:50:34,522 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.610 | train_loss: 0.673 | avg_loss: 0.825
+
+2018-06-24 18:50:37,264 - train.py: 91 - log - loc_loss: 0.072 | cls_loss: 0.614 | train_loss: 0.686 | avg_loss: 0.825
+
+2018-06-24 18:50:40,017 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.611 | train_loss: 0.676 | avg_loss: 0.825
+
+2018-06-24 18:50:43,127 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.623 | train_loss: 0.686 | avg_loss: 0.825
+
+2018-06-24 18:50:46,268 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.642 | train_loss: 0.707 | avg_loss: 0.825
+
+2018-06-24 18:50:49,116 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.622 | train_loss: 0.689 | avg_loss: 0.825
+
+2018-06-24 18:50:51,996 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.615 | train_loss: 0.675 | avg_loss: 0.825
+
+2018-06-24 18:50:54,831 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.628 | train_loss: 0.690 | avg_loss: 0.824
+
+2018-06-24 18:50:57,477 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.676 | train_loss: 0.733 | avg_loss: 0.824
+
+2018-06-24 18:51:00,329 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.709 | train_loss: 0.776 | avg_loss: 0.824
+
+2018-06-24 18:51:03,602 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.656 | train_loss: 0.715 | avg_loss: 0.824
+
+2018-06-24 18:51:06,369 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.618 | train_loss: 0.682 | avg_loss: 0.824
+
+2018-06-24 18:51:09,200 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.649 | train_loss: 0.716 | avg_loss: 0.824
+
+2018-06-24 18:51:12,426 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.604 | train_loss: 0.668 | avg_loss: 0.824
+
+2018-06-24 18:51:15,182 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.642 | train_loss: 0.704 | avg_loss: 0.824
+
+2018-06-24 18:51:18,200 - train.py: 91 - log - loc_loss: 0.072 | cls_loss: 0.672 | train_loss: 0.745 | avg_loss: 0.824
+
+2018-06-24 18:51:21,475 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.698 | train_loss: 0.763 | avg_loss: 0.824
+
+2018-06-24 18:51:24,552 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.650 | train_loss: 0.719 | avg_loss: 0.824
+
+2018-06-24 18:51:27,201 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.676 | train_loss: 0.746 | avg_loss: 0.824
+
+2018-06-24 18:51:30,409 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.602 | train_loss: 0.663 | avg_loss: 0.824
+
+2018-06-24 18:51:33,082 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.635 | train_loss: 0.696 | avg_loss: 0.824
+
+2018-06-24 18:51:35,873 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.649 | train_loss: 0.708 | avg_loss: 0.824
+
+2018-06-24 18:51:38,702 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.642 | train_loss: 0.708 | avg_loss: 0.824
+
+2018-06-24 18:51:41,747 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.612 | train_loss: 0.678 | avg_loss: 0.824
+
+2018-06-24 18:51:44,785 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.564 | train_loss: 0.628 | avg_loss: 0.824
+
+2018-06-24 18:51:47,605 - train.py: 91 - log - loc_loss: 0.057 | cls_loss: 0.616 | train_loss: 0.673 | avg_loss: 0.824
+
+2018-06-24 18:51:50,263 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.594 | train_loss: 0.656 | avg_loss: 0.824
+
+2018-06-24 18:51:53,201 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.660 | train_loss: 0.724 | avg_loss: 0.824
+
+2018-06-24 18:51:55,987 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.699 | train_loss: 0.764 | avg_loss: 0.824
+
+2018-06-24 18:51:59,068 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.590 | train_loss: 0.651 | avg_loss: 0.824
+
+2018-06-24 18:52:01,680 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.607 | train_loss: 0.669 | avg_loss: 0.824
+
+2018-06-24 18:52:04,854 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.628 | train_loss: 0.691 | avg_loss: 0.824
+
+2018-06-24 18:52:07,975 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.605 | train_loss: 0.671 | avg_loss: 0.824
+
+2018-06-24 18:52:11,006 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.594 | train_loss: 0.655 | avg_loss: 0.824
+
+2018-06-24 18:52:14,077 - train.py: 91 - log - loc_loss: 0.070 | cls_loss: 0.653 | train_loss: 0.724 | avg_loss: 0.824
+
+2018-06-24 18:52:17,156 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.668 | train_loss: 0.734 | avg_loss: 0.824
+
+2018-06-24 18:52:19,832 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.619 | train_loss: 0.683 | avg_loss: 0.824
+
+2018-06-24 18:52:23,034 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.638 | train_loss: 0.703 | avg_loss: 0.824
+
+2018-06-24 18:52:25,728 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.626 | train_loss: 0.687 | avg_loss: 0.824
+
+2018-06-24 18:52:28,463 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.611 | train_loss: 0.673 | avg_loss: 0.824
+
+2018-06-24 18:52:31,579 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.602 | train_loss: 0.666 | avg_loss: 0.824
+
+2018-06-24 18:52:34,720 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.589 | train_loss: 0.651 | avg_loss: 0.824
+
+2018-06-24 18:52:37,379 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.637 | train_loss: 0.700 | avg_loss: 0.824
+
+2018-06-24 18:52:40,312 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.622 | train_loss: 0.691 | avg_loss: 0.824
+
+2018-06-24 18:52:43,094 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.630 | train_loss: 0.695 | avg_loss: 0.824
+
+2018-06-24 18:52:46,245 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.609 | train_loss: 0.677 | avg_loss: 0.824
+
+2018-06-24 18:52:49,107 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.632 | train_loss: 0.697 | avg_loss: 0.824
+
+2018-06-24 18:52:51,799 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.602 | train_loss: 0.666 | avg_loss: 0.824
+
+2018-06-24 18:52:54,937 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.589 | train_loss: 0.648 | avg_loss: 0.824
+
+2018-06-24 18:52:57,676 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.668 | train_loss: 0.727 | avg_loss: 0.824
+
+2018-06-24 18:53:00,616 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.655 | train_loss: 0.719 | avg_loss: 0.824
+
+2018-06-24 18:53:03,618 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.608 | train_loss: 0.672 | avg_loss: 0.824
+
+2018-06-24 18:53:06,371 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.592 | train_loss: 0.656 | avg_loss: 0.824
+
+2018-06-24 18:53:09,016 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.601 | train_loss: 0.664 | avg_loss: 0.824
+
+2018-06-24 18:53:11,683 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.625 | train_loss: 0.687 | avg_loss: 0.824
+
+2018-06-24 18:53:14,427 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.664 | train_loss: 0.728 | avg_loss: 0.824
+
+2018-06-24 18:53:17,434 - train.py: 91 - log - loc_loss: 0.054 | cls_loss: 0.583 | train_loss: 0.637 | avg_loss: 0.824
+
+2018-06-24 18:53:20,535 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.590 | train_loss: 0.657 | avg_loss: 0.824
+
+2018-06-24 18:53:23,304 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.621 | train_loss: 0.685 | avg_loss: 0.824
+
+2018-06-24 18:53:26,078 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.657 | train_loss: 0.722 | avg_loss: 0.824
+
+2018-06-24 18:53:28,810 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.660 | train_loss: 0.724 | avg_loss: 0.824
+
+2018-06-24 18:53:31,520 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.602 | train_loss: 0.669 | avg_loss: 0.824
+
+2018-06-24 18:53:34,316 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.649 | train_loss: 0.711 | avg_loss: 0.824
+
+2018-06-24 18:53:37,370 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.632 | train_loss: 0.697 | avg_loss: 0.824
+
+2018-06-24 18:53:40,475 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.587 | train_loss: 0.647 | avg_loss: 0.824
+
+2018-06-24 18:53:43,674 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.620 | train_loss: 0.688 | avg_loss: 0.824
+
+2018-06-24 18:53:46,837 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.638 | train_loss: 0.705 | avg_loss: 0.824
+
+2018-06-24 18:53:49,377 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.652 | train_loss: 0.717 | avg_loss: 0.824
+
+2018-06-24 18:53:52,177 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.591 | train_loss: 0.657 | avg_loss: 0.824
+
+2018-06-24 18:53:55,079 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.612 | train_loss: 0.675 | avg_loss: 0.824
+
+2018-06-24 18:53:58,239 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.616 | train_loss: 0.679 | avg_loss: 0.824
+
+2018-06-24 18:54:00,884 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.655 | train_loss: 0.719 | avg_loss: 0.824
+
+2018-06-24 18:54:04,000 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.532 | train_loss: 0.590 | avg_loss: 0.824
+
+2018-06-24 18:54:07,074 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.599 | train_loss: 0.663 | avg_loss: 0.823
+
+2018-06-24 18:54:09,843 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.645 | train_loss: 0.712 | avg_loss: 0.823
+
+2018-06-24 18:54:12,909 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.600 | train_loss: 0.664 | avg_loss: 0.823
+
+2018-06-24 18:54:15,882 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.582 | train_loss: 0.648 | avg_loss: 0.823
+
+2018-06-24 18:54:18,583 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.642 | train_loss: 0.706 | avg_loss: 0.823
+
+2018-06-24 18:54:21,664 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.609 | train_loss: 0.673 | avg_loss: 0.823
+
+2018-06-24 18:54:24,445 - train.py: 91 - log - loc_loss: 0.071 | cls_loss: 0.634 | train_loss: 0.704 | avg_loss: 0.823
+
+2018-06-24 18:54:27,329 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.632 | train_loss: 0.694 | avg_loss: 0.823
+
+2018-06-24 18:54:30,524 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.600 | train_loss: 0.664 | avg_loss: 0.823
+
+2018-06-24 18:54:33,767 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.703 | train_loss: 0.771 | avg_loss: 0.823
+
+2018-06-24 18:54:36,513 - train.py: 91 - log - loc_loss: 0.057 | cls_loss: 0.624 | train_loss: 0.681 | avg_loss: 0.823
+
+2018-06-24 18:54:39,280 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.587 | train_loss: 0.648 | avg_loss: 0.823
+
+2018-06-24 18:54:41,962 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.637 | train_loss: 0.698 | avg_loss: 0.823
+
+2018-06-24 18:54:45,088 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.621 | train_loss: 0.687 | avg_loss: 0.823
+
+2018-06-24 18:54:47,824 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.574 | train_loss: 0.636 | avg_loss: 0.823
+
+2018-06-24 18:54:50,482 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.632 | train_loss: 0.698 | avg_loss: 0.823
+
+2018-06-24 18:54:53,296 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.550 | train_loss: 0.612 | avg_loss: 0.823
+
+2018-06-24 18:54:56,190 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.610 | train_loss: 0.673 | avg_loss: 0.823
+
+2018-06-24 18:54:58,806 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.680 | train_loss: 0.746 | avg_loss: 0.823
+
+2018-06-24 18:55:01,595 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.653 | train_loss: 0.718 | avg_loss: 0.823
+
+2018-06-24 18:55:04,674 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.584 | train_loss: 0.644 | avg_loss: 0.823
+
+2018-06-24 18:55:07,381 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.604 | train_loss: 0.668 | avg_loss: 0.823
+
+2018-06-24 18:55:10,140 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.682 | train_loss: 0.749 | avg_loss: 0.823
+
+2018-06-24 18:55:13,359 - train.py: 91 - log - loc_loss: 0.071 | cls_loss: 0.642 | train_loss: 0.713 | avg_loss: 0.823
+
+2018-06-24 18:55:16,093 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.638 | train_loss: 0.698 | avg_loss: 0.823
+
+2018-06-24 18:55:18,766 - train.py: 91 - log - loc_loss: 0.056 | cls_loss: 0.589 | train_loss: 0.646 | avg_loss: 0.823
+
+2018-06-24 18:55:21,475 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.597 | train_loss: 0.660 | avg_loss: 0.823
+
+2018-06-24 18:55:24,327 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.588 | train_loss: 0.655 | avg_loss: 0.823
+
+2018-06-24 18:55:27,132 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.622 | train_loss: 0.684 | avg_loss: 0.823
+
+2018-06-24 18:55:30,226 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.693 | train_loss: 0.761 | avg_loss: 0.823
+
+2018-06-24 18:55:33,188 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.539 | train_loss: 0.598 | avg_loss: 0.823
+
+2018-06-24 18:55:36,512 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.617 | train_loss: 0.681 | avg_loss: 0.823
+
+2018-06-24 18:55:39,139 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.597 | train_loss: 0.656 | avg_loss: 0.823
+
+2018-06-24 18:55:41,847 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.633 | train_loss: 0.701 | avg_loss: 0.823
+
+2018-06-24 18:55:44,664 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.640 | train_loss: 0.700 | avg_loss: 0.823
+
+2018-06-24 18:55:47,780 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.610 | train_loss: 0.677 | avg_loss: 0.823
+
+2018-06-24 18:55:50,996 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.555 | train_loss: 0.616 | avg_loss: 0.823
+
+2018-06-24 18:55:53,632 - train.py: 91 - log - loc_loss: 0.059 | cls_loss: 0.649 | train_loss: 0.708 | avg_loss: 0.823
+
+2018-06-24 18:55:56,756 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.620 | train_loss: 0.680 | avg_loss: 0.823
+
+2018-06-24 18:55:59,488 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.593 | train_loss: 0.653 | avg_loss: 0.823
+
+2018-06-24 18:56:02,523 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.593 | train_loss: 0.658 | avg_loss: 0.823
+
+2018-06-24 18:56:05,662 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.556 | train_loss: 0.618 | avg_loss: 0.823
+
+2018-06-24 18:56:08,675 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.602 | train_loss: 0.663 | avg_loss: 0.823
+
+2018-06-24 18:56:11,749 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.638 | train_loss: 0.702 | avg_loss: 0.823
+
+2018-06-24 18:56:14,618 - train.py: 91 - log - loc_loss: 0.072 | cls_loss: 0.710 | train_loss: 0.782 | avg_loss: 0.823
+
+2018-06-24 18:56:17,676 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.654 | train_loss: 0.720 | avg_loss: 0.823
+
+2018-06-24 18:56:20,866 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.644 | train_loss: 0.707 | avg_loss: 0.823
+
+2018-06-24 18:56:24,115 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.601 | train_loss: 0.661 | avg_loss: 0.823
+
+2018-06-24 18:56:26,814 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.614 | train_loss: 0.676 | avg_loss: 0.823
+
+2018-06-24 18:56:29,529 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.637 | train_loss: 0.703 | avg_loss: 0.823
+
+2018-06-24 18:56:32,334 - train.py: 91 - log - loc_loss: 0.054 | cls_loss: 0.572 | train_loss: 0.627 | avg_loss: 0.823
+
+2018-06-24 18:56:35,050 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.588 | train_loss: 0.650 | avg_loss: 0.823
+
+2018-06-24 18:56:37,702 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.596 | train_loss: 0.657 | avg_loss: 0.823
+
+2018-06-24 18:56:40,856 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.696 | train_loss: 0.762 | avg_loss: 0.823
+
+2018-06-24 18:56:43,928 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.604 | train_loss: 0.666 | avg_loss: 0.823
+
+2018-06-24 18:56:46,595 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.595 | train_loss: 0.658 | avg_loss: 0.823
+
+2018-06-24 18:56:49,482 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.680 | train_loss: 0.747 | avg_loss: 0.823
+
+2018-06-24 18:56:52,133 - train.py: 91 - log - loc_loss: 0.067 | cls_loss: 0.632 | train_loss: 0.700 | avg_loss: 0.823
+
+2018-06-24 18:56:54,885 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.606 | train_loss: 0.668 | avg_loss: 0.823
+
+2018-06-24 18:56:57,602 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.646 | train_loss: 0.709 | avg_loss: 0.823
+
+2018-06-24 18:57:00,853 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.594 | train_loss: 0.657 | avg_loss: 0.823
+
+2018-06-24 18:57:03,543 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.609 | train_loss: 0.671 | avg_loss: 0.823
+
+2018-06-24 18:57:06,337 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.698 | train_loss: 0.760 | avg_loss: 0.823
+
+2018-06-24 18:57:09,009 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.669 | train_loss: 0.734 | avg_loss: 0.823
+
+2018-06-24 18:57:11,691 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.563 | train_loss: 0.624 | avg_loss: 0.822
+
+2018-06-24 18:57:14,471 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.567 | train_loss: 0.630 | avg_loss: 0.822
+
+2018-06-24 18:57:17,186 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.605 | train_loss: 0.671 | avg_loss: 0.822
+
+2018-06-24 18:57:19,910 - train.py: 91 - log - loc_loss: 0.062 | cls_loss: 0.576 | train_loss: 0.638 | avg_loss: 0.822
+
+2018-06-24 18:57:23,088 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.655 | train_loss: 0.719 | avg_loss: 0.822
+
+2018-06-24 18:57:26,077 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.644 | train_loss: 0.707 | avg_loss: 0.822
+
+2018-06-24 18:57:28,816 - train.py: 91 - log - loc_loss: 0.061 | cls_loss: 0.581 | train_loss: 0.641 | avg_loss: 0.822
+
+2018-06-24 18:57:31,913 - train.py: 91 - log - loc_loss: 0.068 | cls_loss: 0.608 | train_loss: 0.675 | avg_loss: 0.822
+
+2018-06-24 18:57:34,619 - train.py: 91 - log - loc_loss: 0.065 | cls_loss: 0.582 | train_loss: 0.647 | avg_loss: 0.822
+
+2018-06-24 18:57:37,223 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.585 | train_loss: 0.648 | avg_loss: 0.822
+
+2018-06-24 18:57:40,100 - train.py: 91 - log - loc_loss: 0.066 | cls_loss: 0.616 | train_loss: 0.682 | avg_loss: 0.822
+
+2018-06-24 18:57:42,879 - train.py: 91 - log - loc_loss: 0.060 | cls_loss: 0.598 | train_loss: 0.658 | avg_loss: 0.822
+
+2018-06-24 18:57:45,871 - train.py: 91 - log - loc_loss: 0.063 | cls_loss: 0.644 | train_loss: 0.707 | avg_loss: 0.822
+
+2018-06-24 18:57:49,020 - train.py: 91 - log - loc_loss: 0.069 | cls_loss: 0.660 | train_loss: 0.729 | avg_loss: 0.822
+
+2018-06-24 18:57:51,995 - train.py: 91 - log - loc_loss: 0.064 | cls_loss: 0.597 | train_loss: 0.661 | avg_loss: 0.822
+
+2018-06-24 18:57:54,731 - train.py: 91 - log - loc_loss: 0.058 | cls_loss: 0.608 | train_loss: 0.665 | avg_loss: 0.822
+

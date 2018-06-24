@@ -1,18 +1,23 @@
-from __future__ import print_function
+import os, sys
 
-import os
-import sys
-
-sys.path.append(os.path.join('..'))
+lib_path_datasets = os.path.abspath(os.path.join('..', 'datasets'))
+lib_path_network = os.path.abspath(os.path.join('..', 'network'))
+lib_path_parallel = os.path.abspath(os.path.join('..', 'parallel'))
+sys.path.append(lib_path_datasets)
+sys.path.append(lib_path_network)
+sys.path.append(lib_path_parallel)
 import argparse
 import torch
 import torch.optim as optim
 import torch.utils.data
-from torch.nn.parallel import DataParallel
-from lib.network.retinanet import RetinaNet
-from lib.datasets.coco_dataset import COCODataset, collate_minibatch, MinibatchSampler
-from lib.datasets.roidb import combined_roidb_for_training
+from data_parallel import DataParallel
+from retinanet import RetinaNet
+from coco_json_dataset import COCOJsonDataset
+from coco_dataset import COCODataset, collate_minibatch, MinibatchSampler
+from roidb import combined_roidb_for_training
 from torch.autograd import Variable
+import time
+from eval_coco import evaluate_coco
 import logging.handlers
 
 log_file = 'log.txt'
@@ -43,6 +48,9 @@ sampler = MinibatchSampler(ratio_list, ratio_index)
 dataset = COCODataset(roidb)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=24, sampler=sampler, num_workers=8,
                                          collate_fn=collate_minibatch)
+# for evaluation
+eval_dataset_name = 'minival2014'
+eval_dataset = COCOJsonDataset(root=root, annFile=eval_dataset_name, cache_dir=cache_dir)
 
 # Model
 net = RetinaNet()
@@ -54,7 +62,7 @@ if args.resume:
     best_loss = checkpoint['loss']
     start_epoch = checkpoint['epoch']
 
-net = DataParallel(net, device_ids=range(torch.cuda.device_count()))
+net = DataParallel(net, device_ids=range(torch.cuda.device_count()), minibatch=True)
 net.cuda()
 optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9, weight_decay=1e-4)
 
@@ -67,13 +75,13 @@ def train(epoch):
     net.module.freeze_bn()
     train_loss = 0
     for batch_idx, blobs in enumerate(dataloader):
-        inputs, loc_targets, cls_targets = blobs['data'], blobs['loc_target'], blobs['cls_target']
+        inputs, loc_targets, cls_targets = blobs['data'], blobs['loc_targets'], blobs['cls_targets']
         inputs = list(map(Variable, inputs))
         loc_targets = list(map(Variable, loc_targets))
         cls_targets = list(map(Variable, cls_targets))
 
         optimizer.zero_grad()
-        prediction, num_pos, loc_loss, cls_loss = net(inputs, loc_targets, cls_targets)
+        loc_loss, cls_loss, num_pos = net(inputs, loc_targets, cls_targets)
         sum_loc_loss = loc_loss.sum()
         sum_cls_loss = cls_loss.sum()
         sum_num_pos = num_pos.data.sum()
@@ -120,3 +128,8 @@ for epoch in range(start_epoch + 1, start_epoch + 200):
     if iterations <= 90000:
         adjust_learning_rate_manual(optimizer, iterations)
         train(epoch)
+        begin_time = time.time()
+        logger.debug(evaluate_coco(eval_dataset, net))
+        end_time = time.time()
+        print('time cost for evaluation: {}'.format(end_time - begin_time))
+        logger.debug('time cost for evaluation: {}'.format(end_time - begin_time))
