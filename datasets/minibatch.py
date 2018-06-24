@@ -65,7 +65,11 @@ def _get_roidb_im_info(blobs, im_scales, roidb):
         # for roidb
         for k in valid_keys:
             if k in entry:
-                blobs[k].append(entry[k])
+                # rescale the boxes with scale for image
+                if k == 'bboxes':
+                    blobs[k].append(entry[k] * scale)
+                else:
+                    blobs[k].append(entry[k])
     blobs['im_info'] = np.array(blobs['im_info']).squeeze(axis=0)
     blobs['bboxes'] = np.array(blobs['bboxes'])
     blobs['gt_classes'] = np.array(blobs['gt_classes'])

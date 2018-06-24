@@ -43,7 +43,7 @@ def evaluate_coco(eval_dataset, net):
         except:
             continue
         # rescale the boxes to original image size
-        boxes = boxes / torch.Tensor([scale, scale, scale, scale]).cuda()
+        boxes = boxes / scale
         boxes = torch.cat([boxes[:, :2], boxes[:, 2:] - boxes[:, :2]], 1)
         for i in range(len(labels)):
             img_result = {
