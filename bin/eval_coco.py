@@ -35,7 +35,7 @@ def evaluate_coco(eval_dataset, net):
         h, w = blob.shape[2:]
         scale = im_scale[0]
         img = torch.from_numpy(blob).float()
-        img = [Variable(img, volatile=True)]
+        img = [Variable(img)]
         loc_targets, cls_targets = [Variable(torch.zeros(1, 4))], [Variable(torch.zeros(1))]
         loc_preds, cls_preds = net(img, loc_targets, cls_targets)
         try:
@@ -53,6 +53,7 @@ def evaluate_coco(eval_dataset, net):
                 'bbox': boxes[i].tolist()
             }
             results.append(img_result)
+        # print(idx, 'idx')
     # write output
     json.dump(results, open('../results/detection_result.json', 'w'), indent=4)
     # laod result in coco eval tool
