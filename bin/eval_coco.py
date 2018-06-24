@@ -38,7 +38,10 @@ def evaluate_coco(eval_dataset, net):
         img = [Variable(img)]
         loc_targets, cls_targets = [Variable(torch.zeros(1, 4))], [Variable(torch.zeros(1))]
         loc_preds, cls_preds = net(img, loc_targets, cls_targets)
-        boxes, labels, scores = encoder.decode(loc_preds.data.squeeze(), cls_preds.data.squeeze(), (w, h))
+        try:
+            boxes, labels, scores = encoder.decode(loc_preds.data.squeeze(), cls_preds.data.squeeze(), (w, h))
+        except:
+            continue
         # rescale the boxes to original image size
         boxes = boxes / torch.Tensor([scale, scale, scale, scale]).cuda()
         boxes = torch.cat([boxes[:, :2], boxes[:, 2:] - boxes[:, :2]], 1)
