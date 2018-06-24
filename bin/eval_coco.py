@@ -48,7 +48,7 @@ def evaluate_coco(eval_dataset, net):
         for i in range(len(labels)):
             img_result = {
                 'image_id': entry['id'],
-                'category_id': class_ind_to_coco_cat_id[int(labels[idx])],
+                'category_id': class_ind_to_coco_cat_id[int(labels[i])],
                 'score': float(scores[i]),
                 'bbox': boxes[i].tolist()
             }
