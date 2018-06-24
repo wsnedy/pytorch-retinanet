@@ -1,7 +1,10 @@
+import os, sys
+lib_path = os.path.abspath(os.path.join('..', 'datasets'))
+sys.path.append(lib_path)
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-from datasets.utils import one_hot_embedding
+from utils import one_hot_embedding
 
 
 class FocalLoss(nn.Module):
@@ -71,7 +74,7 @@ class FocalLoss(nn.Module):
         # print(cls_targets)
         batch_size, num_boxes = cls_targets.size()
         pos = cls_targets > 0  # [N, #anchors]
-        num_pos = pos.data.long().sum()
+        num_pos = pos.long().sum()
         # print(num_pos, 'num_pos')
 
         ##########################################################
