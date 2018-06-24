@@ -9,8 +9,8 @@ import torch
 import torch.nn as nn
 import torch.nn.init as init
 
-from .fpn import FPN50
-from .retinanet import RetinaNet
+from fpn import FPN50
+from retinanet import RetinaNet
 
 print('Loading pretrained ResNet50 model...')
 d = torch.load('../pretrained_model/resnet50.pth')

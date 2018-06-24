@@ -1,13 +1,12 @@
-import os
-import sys
-
-sys.path.append(os.path.join('..'))
+import os, sys
+lib_path = os.path.abspath(os.path.join('..', 'loss'))
+sys.path.append(lib_path)
 import torch
 import torch.nn as nn
 
-from .fpn import FPN50
+from fpn import FPN50
 from torch.autograd import Variable
-from lib.loss import FocalLoss
+from focal_loss import FocalLoss
 
 
 class RetinaNet(nn.Module):
@@ -21,7 +20,8 @@ class RetinaNet(nn.Module):
         self.cls_head = self._make_head(self.num_anchors * self.num_classes)
         self.focal_loss = FocalLoss()
 
-    def forward(self, x, loc_targets, cls_targets):
+    def forward(self, inputs):
+        x, loc_targets, cls_targets = inputs
         fms = self.fpn(x)
         loc_preds = []
         cls_preds = []
@@ -37,13 +37,13 @@ class RetinaNet(nn.Module):
             cls_preds.append(cls_pred)
         loc_preds = torch.cat(loc_preds, 1)
         cls_preds = torch.cat(cls_preds, 1)
-        prediction['loc_preds'] = loc_preds.view(-1, 4)
-        prediction['cls_preds'] = cls_preds.view(-1, 80)
         num_pos = loc_loss = cls_loss = 0
         if self.training:
             num_pos, loc_loss, cls_loss = self.focal_loss(loc_preds, loc_targets, cls_preds, cls_targets)
+            return loc_loss, cls_loss, num_pos
         # return torch.cat(loc_preds, 1), torch.cat(cls_preds, 1)
-        return prediction, num_pos, loc_loss, cls_loss
+        else:
+            return loc_preds, cls_preds
 
     def _make_head(self, out_planes):
         layers = []
@@ -62,15 +62,3 @@ class RetinaNet(nn.Module):
             if isinstance(layer, nn.BatchNorm2d):
                 layer.eval()
 
-
-def test():
-    net = RetinaNet()
-    loc_preds, cls_preds = net(Variable(torch.randn(2, 3, 224, 224)))
-    print(loc_preds.size())
-    print(cls_preds.size())
-    loc_grads = Variable(torch.randn(loc_preds.size()))
-    cls_grads = Variable(torch.randn(cls_preds.size()))
-    loc_preds.backward(loc_grads)
-    cls_preds.backward(cls_grads)
-
-    # test()
