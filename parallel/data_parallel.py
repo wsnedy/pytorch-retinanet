@@ -72,7 +72,7 @@ class DataParallel(Module):
             inputs_list = []
             # number of minibatch in each batch (this happens in the last select of sampler)
             minibatch_num = len(inputs[0])
-            print(minibatch_num, 'minibatch_num')
+            # print(minibatch_num, 'minibatch_num')
             for i in range(minibatch_num):
                 device_id = self.device_ids[i]
                 mini_inputs = [x[i] for x in inputs]
