@@ -31,13 +31,16 @@ class COCODataset(data.Dataset):
         #         'bboxes': (ndarray)num_boxes x 4, 'gt_classes': (ndarray)num_boxes}
         for key in blobs:
             blobs[key] = blobs[key].squeeze(axis=0)
-
         if self._roidb[index]['need_crop']:
             self.crop_data(blobs, ratio)
             # check bounding box
             boxes = blobs['bboxes']
             invalid = (boxes[:, 0] == boxes[:, 2]) | (boxes[:, 1] == boxes[:, 3])
             valid_inds = np.nonzero(~invalid)[0]
+            if len(valid_inds) == 0:  # for debug
+                print(index, 'index')
+                print(self._roidb[index], 'roidb for this index')
+                print(boxes, 'boxes')
             if len(valid_inds) < len(boxes):
                 for key in ['bboxes', 'gt_classes']:
                     if key in blobs:
@@ -60,8 +63,10 @@ class COCODataset(data.Dataset):
                     y_s_max = min(min_y, data_height - size_crop)
                     y_s = y_s_min if y_s_min == y_s_max else np.random.choice(range(int(y_s_min), int(y_s_max) + 1))
                 else:
-                    y_s_add = (box_region - size_crop) // 2
-                    y_s = min_y if y_s_add == 0 else np.random.choice(range(int(min_y), int(min_y + y_s_add + 1)))
+                    # we can't use center crop, because there is a specific situation
+                    # for example, boxes: [56, 2, 78, 3], [231, 987, 240, 990]
+                    # the box_region is large, when we use center crop, there will be no box.
+                    y_s = min_y
             # crop the image
             blobs['data'] = blobs['data'][:, int(y_s):int(y_s + size_crop), :, ]
             # update the im_info
@@ -85,8 +90,10 @@ class COCODataset(data.Dataset):
                     x_s_max = min(min_x, data_width - size_crop)
                     x_s = x_s_min if x_s_min == x_s_max else np.random.choice(range(int(x_s_min), int(x_s_max + 1)))
                 else:
-                    x_s_add = (box_region - size_crop) // 2
-                    x_s = min_x if x_s_add == 0 else np.random.choice(range(int(min_x), int(min_x + x_s_add + 1)))
+                    # we can't use center crop, because there is a specific situation
+                    # for example, boxes: [2, 56, 3, 78], [987, 231, 990, 240]
+                    # the box_region is large, when we use center crop, there will be no box.
+                    x_s = min_x
             # crop the image
             blobs['data'] = blobs['data'][:, :, int(x_s):int(x_s + size_crop)]
             # update the im_info
