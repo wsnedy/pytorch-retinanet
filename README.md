@@ -63,17 +63,13 @@ Download the coco images and annotations from [coco website](http://cocodataset.
   ├── annotations
   |   ├── instances_minival2014.json
   │   ├── instances_train2014.json
-  │   ├── instances_train2017.json
   │   ├── instances_val2014.json
-  │   ├── instances_val2017.json
   │   ├── instances_valminusminival2014.json
   │   ├── ...
   |
   └── images
       ├── train2014
-      ├── train2017
       ├── val2014
-      ├──val2017
       ├── ...
   ```
   When training, change the root path to your own data path.

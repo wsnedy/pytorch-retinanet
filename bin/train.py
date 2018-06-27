@@ -46,7 +46,10 @@ cache_dir = '../cache_dir'
 roidb, ratio_list, ratio_index = combined_roidb_for_training(root, dataset_names, cache_dir)
 sampler = MinibatchSampler(ratio_list, ratio_index)
 dataset = COCODataset(roidb)
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=24, sampler=sampler, num_workers=8,
+# there has a bug in dataloader, when use num_worker > 0,  finish a epoch, the code will stuck in dataloader
+# perhaps it's the memory problem in dataloader
+# so change the num_worker to 0
+dataloader = torch.utils.data.DataLoader(dataset, batch_size=24, sampler=sampler, num_workers=0,
                                          collate_fn=collate_minibatch)
 # for evaluation
 eval_dataset_name = 'minival2014'
