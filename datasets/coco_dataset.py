@@ -160,8 +160,8 @@ class MinibatchSampler(torch_sampler.Sampler):
         # there has a problem, if in each minibatch, the number of image less than 3
         # i think it will raise a error, because the num_pos = 0 for that image or two images
         # and the loss can't backward
-        # if rem != 0:
-        #     indices = np.append(indices, np.arange(round_num_data, round_num_data + rem))
+        if rem != 0:
+            indices = np.append(indices, np.arange(round_num_data, round_num_data + rem))
         ratio_index = self.ratio_index[indices]
         ratio_list_minibatch = self.ratio_list_minibatch[indices]
         return iter(zip(ratio_index.tolist(), ratio_list_minibatch.tolist()))
