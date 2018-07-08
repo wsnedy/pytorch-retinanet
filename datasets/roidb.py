@@ -19,7 +19,7 @@ def combined_roidb_for_training(root, dataset_names, cache_dir):
     def get_roidb(root, dataset_name, cache_dir):
         dataset = COCOJsonDataset(root=root, annFile=dataset_name, cache_dir=cache_dir)
         roidb = dataset.get_roidb()
-        extend_with_flipped_entries(roidb)
+        # extend_with_flipped_entries(roidb)
         return roidb
 
     roidbs = [get_roidb(root, dataset_name, cache_dir) for dataset_name in dataset_names]

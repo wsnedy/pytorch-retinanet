@@ -1,8 +1,10 @@
 import numpy as np
+import random
 import torch
 import torch.utils.data as data
 import torch.utils.data.sampler as torch_sampler
 from torch.utils.data.dataloader import default_collate
+from torch._six import int_classes as _int_classes
 from minibatch import get_minibatch
 import math
 from utils import get_max_shape
@@ -21,7 +23,18 @@ class COCODataset(data.Dataset):
 
     def __getitem__(self, index_tuple):
         index, ratio = index_tuple
-        single_db = [self._roidb[index]]
+        roidb = self._roidb[index]
+        if random.random() < 0.5:
+            width = roidb['width']
+            boxes = roidb['bboxes'].copy()
+            oldx1 = boxes[:, 0].copy()
+            oldx2 = boxes[:, 2].copy()
+            boxes[:, 0] = width - oldx2
+            boxes[:, 2] = width - oldx1
+            assert (boxes[:, 2] >= boxes[:, 0]).all()
+            roidb['bboxes'] = boxes
+            roidb['flipped'] = True
+        single_db = [roidb]
         # for one image:
         # blobs: {'data': (ndarray)1 x c x h x w, 'im_info': (ndarray)1 x 3,
         #         'bboxes': (ndarray)1 x num_boxes x 4, 'gt_classes': (ndarray)1 x num_boxes}
@@ -121,9 +134,9 @@ def cal_minibatch_ratio(ratio_list):
             - ratio_list_minibatch: split the ratio_list into minibatches
     """
     DATA_SIZE = len(ratio_list)
-    img_per_minibatch = 3
+    img_per_minibatch = 2
     ratio_list_minibatch = np.empty((DATA_SIZE,))
-    num_minibatch = int(np.ceil(DATA_SIZE / img_per_minibatch))
+    num_minibatch = int(np.ceil(DATA_SIZE / float(img_per_minibatch)))
     for i in range(num_minibatch):
         left_idx = i * img_per_minibatch
         right_idx = min((i + 1) * img_per_minibatch - 1, DATA_SIZE - 1)
@@ -147,9 +160,11 @@ class MinibatchSampler(torch_sampler.Sampler):
         self.ratio_list = ratio_list
         self.ratio_index = ratio_index
         self.num_data = len(ratio_list)
-        self.img_per_minibatch = 3
+        self.img_per_minibatch = 2
 
         self.ratio_list_minibatch = cal_minibatch_ratio(ratio_list)
+        print(min(self.ratio_list_minibatch), 'min_ratio')
+        print(max(self.ratio_list_minibatch), 'max_ratio')
 
     def __iter__(self):
         # indices for aspect grouping awared permutation
@@ -170,6 +185,53 @@ class MinibatchSampler(torch_sampler.Sampler):
         return self.num_data
 
 
+class BatchSampler(torch_sampler.BatchSampler):
+    r"""Wraps another sampler to yield a mini-batch of indices.
+    Args:
+        sampler (Sampler): Base sampler.
+        batch_size (int): Size of mini-batch.
+        drop_last (bool): If ``True``, the sampler will drop the last batch if
+            its size would be less than ``batch_size``
+    Example:
+        >>> list(BatchSampler(range(10), batch_size=3, drop_last=False))
+        [[0, 1, 2], [3, 4, 5], [6, 7, 8], [9]]
+        >>> list(BatchSampler(range(10), batch_size=3, drop_last=True))
+        [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    """
+
+    def __init__(self, sampler, batch_size, drop_last):
+        if not isinstance(sampler, torch_sampler.Sampler):
+            raise ValueError("sampler should be an instance of "
+                             "torch.utils.data.Sampler, but got sampler={}"
+                             .format(sampler))
+        if not isinstance(batch_size, _int_classes) or isinstance(batch_size, bool) or \
+                batch_size <= 0:
+            raise ValueError("batch_size should be a positive integeral value, "
+                             "but got batch_size={}".format(batch_size))
+        if not isinstance(drop_last, bool):
+            raise ValueError("drop_last should be a boolean value, but got "
+                             "drop_last={}".format(drop_last))
+        self.sampler = sampler
+        self.batch_size = batch_size
+        self.drop_last = drop_last
+
+    def __iter__(self):
+        batch = []
+        for idx in self.sampler:
+            batch.append(idx)  # Difference: batch.append(int(idx))
+            if len(batch) == self.batch_size:
+                yield batch
+                batch = []
+        if len(batch) > 0 and not self.drop_last:
+            yield batch
+
+    def __len__(self):
+        if self.drop_last:
+            return len(self.sampler) // self.batch_size
+        else:
+            return (len(self.sampler) + self.batch_size - 1) // self.batch_size
+
+
 def collate_minibatch(list_of_blobs):
     """
     Stack smaples seperately and return a list of minibatches
@@ -178,7 +240,7 @@ def collate_minibatch(list_of_blobs):
     :param list_of_blobs:
     :return:
     """
-    img_per_minibatch = 3
+    img_per_minibatch = 2
     encoder = DataEncoder()
     Batch = {key: [] for key in ['im_info', 'cls_targets', 'loc_targets', 'data']}
     # Because roidb consists of entries of variable length, it can't be batch into a tensor.

@@ -1,6 +1,7 @@
 import os, sys
 lib_path = os.path.abspath(os.path.join('..', 'datasets'))
 sys.path.append(lib_path)
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
@@ -80,10 +81,13 @@ class FocalLoss(nn.Module):
         ##########################################################
         # loc_loss = SmoothL1Loss(pos_loc_preds, pos_loc_targets)
         ##########################################################
-        mask = pos.unsqueeze(2).expand_as(loc_preds)  # [N, #anchors, 4]
-        masked_loc_preds = loc_preds[mask].view(-1, 4)  # [#pos, 4]
-        masked_loc_targets = loc_targets[mask].view(-1, 4)  # [#pos, 4]
-        loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
+        if num_pos.data[0] > 0:
+            mask = pos.unsqueeze(2).expand_as(loc_preds)  # [N, #anchors, 4]
+            masked_loc_preds = loc_preds[mask].view(-1, 4)  # [#pos, 4]
+            masked_loc_targets = loc_targets[mask].view(-1, 4)  # [#pos, 4]
+            loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
+        else:
+            loc_loss = Variable(torch.Tensor([0]).float().cuda())
 
         ##########################################################
         # cls_loss = FocalLoss(cls_preds, cls_targets)
