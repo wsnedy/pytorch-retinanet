@@ -42,8 +42,13 @@ def evaluate_coco(eval_dataset, net):
             boxes, labels, scores = encoder.decode(loc_preds.data.squeeze(), cls_preds.data.squeeze(), (w, h))
         except:
             continue
+        # boxes, labels, scores = encoder.decode(loc_preds.data.squeeze(), cls_preds.data.squeeze(), (w, h))
         # rescale the boxes to original image size
         boxes = boxes / scale
+        boxes[:, 0] = torch.clamp(boxes[:, 0], min=0)
+        boxes[:, 1] = torch.clamp(boxes[:, 1], min=0)
+        boxes[:, 2] = torch.clamp(boxes[:, 2], max=w)
+        boxes[:, 3] = torch.clamp(boxes[:, 3], max=h)
         boxes = torch.cat([boxes[:, :2], boxes[:, 2:] - boxes[:, :2]], 1)
         for i in range(len(labels)):
             img_result = {

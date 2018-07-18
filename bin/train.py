@@ -20,7 +20,7 @@ import time
 from eval_coco import evaluate_coco
 import logging.handlers
 
-log_file = 'log_rerun.txt'
+log_file = 'log_rerun_single_loss.txt'
 handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=2048 * 2048, backupCount=5)
 fmt = '%(asctime)s - %(filename)s: %(lineno)s - %(name)s - %(message)s'
 formatter = logging.Formatter(fmt)
@@ -65,7 +65,7 @@ net = RetinaNet()
 net.load_state_dict(torch.load('../pretrained_model/net.pth'))
 if args.resume:
     print('==> Resuming from checkpoint..')
-    checkpoint = torch.load('../checkpoint/ckpt_{}.pth'.format(args.epoch))
+    checkpoint = torch.load('../checkpoint/ckpt_sl_{}.pth'.format(args.epoch))
     net.load_state_dict(checkpoint['net'])
     best_loss = checkpoint['loss']
     start_epoch = checkpoint['epoch']
@@ -89,14 +89,12 @@ def train(epoch):
         cls_targets = list(map(Variable, cls_targets))
 
         optimizer.zero_grad()
-        loc_loss, cls_loss, num_pos = net(inputs, loc_targets, cls_targets)
-        sum_loc_loss = loc_loss.sum()
-        sum_cls_loss = cls_loss.sum()
-        sum_num_pos = num_pos.data.sum()
-        mean_loc_loss = sum_loc_loss / sum_num_pos
-        mean_cls_loss = sum_cls_loss / sum_num_pos
+        loc_loss, cls_loss = net(inputs, loc_targets, cls_targets)
+        mean_loc_loss = loc_loss.mean()
+        mean_cls_loss = cls_loss.mean()
         loss = mean_loc_loss + mean_cls_loss
         loss.backward()
+        # torch.nn.utils.clip_grad_norm(net.parameters(), 0.1)
         optimizer.step()
 
         train_loss += loss.data[0]
@@ -117,7 +115,7 @@ def train(epoch):
         }
         if not os.path.isdir('../checkpoint'):
             os.mkdir('../checkpoint')
-        torch.save(state, '../checkpoint/ckpt_{}.pth'.format(epoch))
+        torch.save(state, '../checkpoint/ckpt_sl_{}.pth'.format(epoch))
         best_loss = train_loss
 
 

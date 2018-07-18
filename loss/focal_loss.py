@@ -75,18 +75,19 @@ class FocalLoss(nn.Module):
         # print(cls_targets)
         batch_size, num_boxes = cls_targets.size()
         pos = cls_targets > 0  # [N, #anchors]
-        num_pos = pos.long().sum()
+        num_pos = pos.data.long().sum()
         # print(num_pos, 'num_pos')
 
         ##########################################################
         # loc_loss = SmoothL1Loss(pos_loc_preds, pos_loc_targets)
         ##########################################################
-        if num_pos.data[0] > 0:
+        if num_pos > 0:
             mask = pos.unsqueeze(2).expand_as(loc_preds)  # [N, #anchors, 4]
             masked_loc_preds = loc_preds[mask].view(-1, 4)  # [#pos, 4]
             masked_loc_targets = loc_targets[mask].view(-1, 4)  # [#pos, 4]
             loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
         else:
+            num_pos = 1.
             loc_loss = Variable(torch.Tensor([0]).float().cuda())
 
         ##########################################################
@@ -100,4 +101,6 @@ class FocalLoss(nn.Module):
         # print('loc_loss: {:.3f} | cls_loss: {:.3f}'.format(loc_loss.data[0] / num_pos, cls_loss.data[0] / num_pos),
         #       end=' | ')
         # loss = (loc_loss + cls_loss) / num_pos
-        return num_pos, loc_loss, cls_loss
+        loc_loss = loc_loss / num_pos
+        cls_loss = cls_loss / num_pos
+        return loc_loss, cls_loss

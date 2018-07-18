@@ -58,6 +58,7 @@ class FPN(nn.Module):
         # smooth layers
         self.smooth1 = nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, padding=1)
         self.smooth2 = nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, padding=1)
+        self.smooth3 = nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, padding=1)
 
     def _make_layer(self, block, planes, num_blocks, stride):
         strides = [stride] + [1] * (num_blocks - 1)
@@ -76,7 +77,7 @@ class FPN(nn.Module):
         Use the 'bilinear' mode to upsample
         """
         _, _, H, W = y.size()
-        return F.upsample(x, size=(H, W), mode='bilinear') + y
+        return F.upsample(x, size=(H, W), mode='nearest') + y
 
     def forward(self, x):
         # Bottom-up
@@ -88,12 +89,14 @@ class FPN(nn.Module):
         c5 = self.layer4(c4)
         p6 = self.conv6(c5)
         p7 = self.conv7(F.relu(p6))
-        # Top-down and smooth
+        # Top-down
         p5 = self.lateral_layer1(c5)
         p4 = self._upsample_add(p5, self.lateral_layer2(c4))
-        p4 = self.smooth1(p4)
         p3 = self._upsample_add(p4, self.lateral_layer3(c3))
-        p3 = self.smooth2(p3)
+        # smooth layer
+        p5 = self.smooth1(p5)
+        p4 = self.smooth2(p4)
+        p3 = self.smooth3(p3)
         return p3, p4, p5, p6, p7
 
 

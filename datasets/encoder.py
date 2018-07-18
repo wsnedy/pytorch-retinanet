@@ -1,7 +1,12 @@
 """Encode object boxes and labels"""
+import os, sys
+
+lib_path_datasets = os.path.abspath(os.path.join('..', 'lib'))
+sys.path.append(lib_path_datasets)
 import math
 import torch
 from utils import meshgrid, change_box_order, box_iou, box_nms
+from nms.pth_nms import pth_nms
 
 
 class DataEncoder(object):
@@ -86,6 +91,12 @@ class DataEncoder(object):
         cls_targets[ignore] = -1
         return loc_targets, cls_targets
 
+    @staticmethod
+    def nms(dets, thresh):
+        "Dispatch to either CPU or GPU NMS implementations.\
+        Accept dets as tensor"""
+        return pth_nms(dets, thresh)
+
     def decode(self, loc_preds, cls_preds, input_size):
         """
         Decode outputs back to bounding box locations and class labels.
@@ -119,7 +130,8 @@ class DataEncoder(object):
         ids = scores > CLS_THRESH
         ids = ids.nonzero().squeeze()
         # print(ids, 'ids')
-        keep = box_nms(boxes[ids], scores[ids], threshold=NMS_THRESH)
+        dets = torch.cat([boxes[ids], scores[ids].unsqueeze(1)], 1)
+        keep = self.nms(dets, NMS_THRESH)
         # print(keep, 'keep')
-        keep = keep.cuda()
+        # keep = keep.cuda()
         return boxes[ids][keep], labels[ids][keep] + 1, scores[ids][keep]

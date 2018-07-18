@@ -38,8 +38,8 @@ class RetinaNet(nn.Module):
         loc_preds = torch.cat(loc_preds, 1)
         cls_preds = torch.cat(cls_preds, 1)
         if self.training:
-            num_pos, loc_loss, cls_loss = self.focal_loss(loc_preds, loc_targets, cls_preds, cls_targets)
-            return loc_loss, cls_loss, num_pos
+            loc_loss, cls_loss = self.focal_loss(loc_preds, loc_targets, cls_preds, cls_targets)
+            return loc_loss, cls_loss
         # return torch.cat(loc_preds, 1), torch.cat(cls_preds, 1)
         else:
             return loc_preds, cls_preds
