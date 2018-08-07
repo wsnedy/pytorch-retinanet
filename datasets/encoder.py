@@ -84,10 +84,11 @@ class DataEncoder(object):
         loc_xy = (boxes[:, :2] - anchor_boxes[:, :2]) / anchor_boxes[:, 2:]
         loc_wh = torch.log(boxes[:, 2:] / anchor_boxes[:, 2:])
         loc_targets = torch.cat([loc_xy, loc_wh], 1)
+        loc_targets = loc_targets / torch.Tensor([[0.1, 0.1, 0.2, 0.2]])
         cls_targets = labels[max_ids]
 
-        cls_targets[max_ious < 0.5] = 0
-        ignore = (max_ious > 0.4) & (max_ious < 0.5)  # ignore ious between [0.4, 0.5]
+        cls_targets[max_ious < 0.4] = 0
+        ignore = (max_ious >= 0.4) & (max_ious < 0.5)  # ignore ious between [0.4, 0.5]
         cls_targets[ignore] = -1
         return loc_targets, cls_targets
 
@@ -112,7 +113,7 @@ class DataEncoder(object):
 
         input_size = torch.Tensor([input_size, input_size]) if isinstance(input_size, int) else torch.Tensor(input_size)
         anchor_boxes = self._get_anchor_boxes(input_size).cuda()
-
+        loc_preds = loc_preds * torch.Tensor([[0.1, 0.1, 0.2, 0.2]]).cuda()
         loc_xy = loc_preds[:, :2]
         loc_wh = loc_preds[:, 2:]
         # print(loc_xy, 'loc_xy')

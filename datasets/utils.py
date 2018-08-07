@@ -138,8 +138,8 @@ def change_box_order(boxes, order):
     a = boxes[:, :2]
     b = boxes[:, 2:]
     if order == 'xyxy2xywh':
-        return torch.cat([(a + b) / 2, b - a], 1)
-    return torch.cat([a - b / 2, a + b / 2], 1)
+        return torch.cat([(a + b) / 2., b - a], 1)
+    return torch.cat([a - b / 2., a + b / 2.], 1)
 
 
 def box_iou(box1, box2, order='xyxy'):

@@ -96,9 +96,9 @@ def rank_for_training(roidb):
             ratio_list: ndarray, list of aspect ratios from small to large
             ratio_index: ndarray, list of roidb entry indices correspond to the ratios
     """
-    RATIO_HI = 2  # largest ratio to preserve
-    RATIO_LO = 0.5  # smallest ratio to preserve
-    need_crop_cnt = 0
+    # RATIO_HI = 2  # largest ratio to preserve
+    # RATIO_LO = 0.5  # smallest ratio to preserve
+    # need_crop_cnt = 0
 
     ratio_list = []
     for entry in roidb:
@@ -106,20 +106,20 @@ def rank_for_training(roidb):
         height = entry['height']
         ratio = width / float(height)
 
-        if ratio > RATIO_HI:
-            entry['need_crop'] = True
-            ratio = RATIO_HI
-            need_crop_cnt += 1
-        elif ratio < RATIO_LO:
-            entry['need_crop'] = True
-            ratio = RATIO_LO
-            need_crop_cnt += 1
-        else:
-            entry['need_crop'] = False
+        # if ratio > RATIO_HI:
+        #     entry['need_crop'] = True
+        #     ratio = RATIO_HI
+        #     need_crop_cnt += 1
+        # elif ratio < RATIO_LO:
+        #     entry['need_crop'] = True
+        #     ratio = RATIO_LO
+        #     need_crop_cnt += 1
+        # else:
+        #     entry['need_crop'] = False
         ratio_list.append(ratio)
 
-    print('Number of entries that need to be cropped:'
-          ' {}. Ratio bound: [{}, {}]'.format(need_crop_cnt, RATIO_LO, RATIO_HI))
+    # print('Number of entries that need to be cropped:'
+    #       ' {}. Ratio bound: [{}, {}]'.format(need_crop_cnt, RATIO_LO, RATIO_HI))
 
     ratio_list = np.array(ratio_list)
     ratio_index = np.argsort(ratio_list)

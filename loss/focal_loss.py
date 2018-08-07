@@ -1,4 +1,5 @@
 import os, sys
+
 lib_path = os.path.abspath(os.path.join('..', 'datasets'))
 sys.path.append(lib_path)
 import torch
@@ -59,6 +60,10 @@ class FocalLoss(nn.Module):
         loss = -w * pt.log() / 2
         return loss.sum()
 
+    @staticmethod
+    def where(cond, x_1, x_2):
+        return (cond.float() * x_1) + ((1 - cond.float()) * x_2)
+
     def forward(self, loc_preds, loc_targets, cls_preds, cls_targets):
         """
         Compute loss between (loc_preds, loc_targets) and (cls_preds, cls_targets).
@@ -86,6 +91,10 @@ class FocalLoss(nn.Module):
             masked_loc_preds = loc_preds[mask].view(-1, 4)  # [#pos, 4]
             masked_loc_targets = loc_targets[mask].view(-1, 4)  # [#pos, 4]
             loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
+            # regression_diff = torch.abs(masked_loc_targets - masked_loc_preds)
+            # loc_loss = self.where(torch.le(regression_diff, 1.0 / 9.0), 0.5 * 9.0 * torch.pow(regression_diff, 2),
+            #                       regression_diff - 0.5 / 9.0)
+            # loc_loss = loc_loss.sum()
         else:
             num_pos = 1.
             loc_loss = Variable(torch.Tensor([0]).float().cuda())
