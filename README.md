@@ -19,7 +19,7 @@ different multi-image size in minibatch.
 supported dataset.
 
 ## Results of RetinaNet
-Now, I get the result using COCOAPI, the training AP is 29.9, compare to 34.0 in the original paper, it's not good.
+Now, I get the result using COCOAPI, the training AP is 32.3, compare to 34.0 in the original paper, it's not good enough.
 I will figure out where the problem is.
 
 ## Getting Started

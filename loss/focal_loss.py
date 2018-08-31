@@ -90,11 +90,11 @@ class FocalLoss(nn.Module):
             mask = pos.unsqueeze(2).expand_as(loc_preds)  # [N, #anchors, 4]
             masked_loc_preds = loc_preds[mask].view(-1, 4)  # [#pos, 4]
             masked_loc_targets = loc_targets[mask].view(-1, 4)  # [#pos, 4]
-            loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
-            # regression_diff = torch.abs(masked_loc_targets - masked_loc_preds)
-            # loc_loss = self.where(torch.le(regression_diff, 1.0 / 9.0), 0.5 * 9.0 * torch.pow(regression_diff, 2),
-            #                       regression_diff - 0.5 / 9.0)
-            # loc_loss = loc_loss.sum()
+            # loc_loss = F.smooth_l1_loss(masked_loc_preds, masked_loc_targets, size_average=False)
+            regression_diff = torch.abs(masked_loc_targets - masked_loc_preds)
+            loc_loss = self.where(torch.le(regression_diff, 1.0 / 9.0), 0.5 * 9.0 * torch.pow(regression_diff, 2),
+                                  regression_diff - 0.5 / 9.0)
+            loc_loss = loc_loss.sum()
         else:
             num_pos = 1.
             loc_loss = Variable(torch.Tensor([0]).float().cuda())
