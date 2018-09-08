@@ -71,4 +71,5 @@ def evaluate_coco(eval_dataset, net):
     coco_eval.evaluate()
     coco_eval.accumulate()
     coco_eval.summarize()
+    net.train()
     return coco_eval.stats

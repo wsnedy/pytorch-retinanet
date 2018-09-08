@@ -24,14 +24,26 @@ for k in d.keys():
 
 print('Saving RetinaNet..')
 net = RetinaNet()
-for m in net.modules():
+for m in net.fpn.modules():
     if isinstance(m, nn.Conv2d):
-        init.normal(m.weight, mean=0, std=0.01)
+        init.xavier_uniform(m.weight)
         if m.bias is not None:
             init.constant(m.bias, 0)
     elif isinstance(m, nn.BatchNorm2d):
         m.weight.data.fill_(1)
         m.bias.data.zero_()
+
+for m in net.cls_head.modules():
+    if isinstance(m, nn.Conv2d):
+        init.normal(m.weight, mean=0, std=0.01)
+        if m.bias is not None:
+            init.constant(m.bias, 0)
+
+for m in net.loc_head.modules():
+    if isinstance(m, nn.Conv2d):
+        init.normal(m.weight, mean=0, std=0.01)
+        if m.bias is not None:
+            init.constant(m.bias, 0)
 
 pi = 0.01
 init.constant(net.cls_head[-1].bias, -math.log((1 - pi) / pi))

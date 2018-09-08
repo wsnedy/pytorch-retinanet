@@ -20,8 +20,8 @@ import time
 from eval_coco import evaluate_coco
 import logging.handlers
 
-log_file = 'log_rerun_single_loss.txt'
-handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=2048 * 2048, backupCount=5)
+log_file = 'log_rerun_xavier.txt'
+handler = logging.handlers.RotatingFileHandler(log_file, maxBytes=1024 * 1024 * 20, backupCount=5)
 fmt = '%(asctime)s - %(filename)s: %(lineno)s - %(name)s - %(message)s'
 formatter = logging.Formatter(fmt)
 handler.setFormatter(formatter)
@@ -65,7 +65,7 @@ net = RetinaNet()
 net.load_state_dict(torch.load('../pretrained_model/net.pth'))
 if args.resume:
     print('==> Resuming from checkpoint..')
-    checkpoint = torch.load('../checkpoint/ckpt_sl_{}.pth'.format(args.epoch))
+    checkpoint = torch.load('../checkpoint/ckpt_xavier_{}.pth'.format(args.epoch))
     net.load_state_dict(checkpoint['net'])
     best_loss = checkpoint['loss']
     start_epoch = checkpoint['epoch']
@@ -115,7 +115,7 @@ def train(epoch):
         }
         if not os.path.isdir('../checkpoint'):
             os.mkdir('../checkpoint')
-        torch.save(state, '../checkpoint/ckpt_sl_{}.pth'.format(epoch))
+        torch.save(state, '../checkpoint/ckpt_xavier_{}.pth'.format(epoch))
         best_loss = train_loss
 
 

@@ -3,7 +3,7 @@ import cv2
 import torch
 
 
-def prep_im_for_blob(im, pixel_means, target_sizes, max_size):
+def prep_im_for_blob(im, pixel_means, pixel_stds, target_sizes, max_size):
     """
     Prepare an image for use as a network input blob, specially:
     - Subtract per-channel pixel mean
@@ -11,14 +11,16 @@ def prep_im_for_blob(im, pixel_means, target_sizes, max_size):
     - Rescale to each of the specified target size (capped at max_size)
     :param im: the image ndarray
     :param pixel_means: image means for each channel
+    :param pixel_stds: image stds for each channel
     :param target_sizes: the target size for rescale the image
     :param max_size: the max size of the longer side in the image
     :return:
             - A list of transformed images, one for each target size. Also returns the scale
             factors that were used to compute each returned image.
     """
-    im = im.astype(np.float32, copy=False)
+    im = im.astype(np.float32, copy=False) / 255.0
     im -= pixel_means
+    im /= pixel_stds
     im_shape = im.shape
     im_size_min = np.min(im_shape[0:2])
     im_size_max = np.max(im_shape[0:2])

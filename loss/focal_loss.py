@@ -94,7 +94,9 @@ class FocalLoss(nn.Module):
             regression_diff = torch.abs(masked_loc_targets - masked_loc_preds)
             loc_loss = self.where(torch.le(regression_diff, 1.0 / 9.0), 0.5 * 9.0 * torch.pow(regression_diff, 2),
                                   regression_diff - 0.5 / 9.0)
-            loc_loss = loc_loss.sum()
+            # use mean() here, so the loc_loss dont have to divide num_pos
+            # loc_loss = loc_loss.sum()
+            loc_loss = loc_loss.mean()
         else:
             num_pos = 1.
             loc_loss = Variable(torch.Tensor([0]).float().cuda())
@@ -110,6 +112,6 @@ class FocalLoss(nn.Module):
         # print('loc_loss: {:.3f} | cls_loss: {:.3f}'.format(loc_loss.data[0] / num_pos, cls_loss.data[0] / num_pos),
         #       end=' | ')
         # loss = (loc_loss + cls_loss) / num_pos
-        loc_loss = loc_loss / num_pos
+        loc_loss = loc_loss
         cls_loss = cls_loss / num_pos
         return loc_loss, cls_loss

@@ -33,7 +33,8 @@ def _get_image_blob(roidb):
     num_images = len(roidb)
     IMAGE_SIZE = (600,)
     MAX_SIZE = 1000
-    PIXEL_MEAN = np.array([[[102.9801, 115.9465, 122.7717]]])
+    PIXEL_MEAN = np.array([[[0.485, 0.456, 0.406]]])
+    PIXEL_STD = np.array([[[0.229, 0.224, 0.225]]])
     # sample random image size to use for each image in this batch
     # size_inds is np.array([ind])
     size_inds = np.random.randint(0, high=len(IMAGE_SIZE), size=num_images)
@@ -42,11 +43,13 @@ def _get_image_blob(roidb):
     for i in range(num_images):
         im = cv2.imread(roidb[i]['image'])
         assert im is not None, 'Failed to read image \'{}\''.format(roidb[i]['image'])
+        # change the mode from bgr to rgb
+        im = im[:, :, ::-1]
         # if flipped, flip the image
         if roidb[i]['flipped']:
             im = im[:, ::-1, :]
         target_size = IMAGE_SIZE[size_inds[i]]
-        im, im_scale = prep_im_for_blob(im, PIXEL_MEAN, [target_size], MAX_SIZE)
+        im, im_scale = prep_im_for_blob(im, PIXEL_MEAN, PIXEL_STD, [target_size], MAX_SIZE)
         im_scales.append(im_scale[0])
         processed_ims.append(im[0])
     # create a blob to hold the input images [n, c, h, w]
